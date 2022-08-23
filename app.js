@@ -2,7 +2,7 @@ const board = document.querySelector('.board')
 const resetBtn = document.querySelector('button.reset')
 const winnerTitle = document.querySelector('.winner')
 const turnArr =  document.querySelectorAll('.turn > h3')
-const dialog = document.querySelector('dialog')
+const popup = document.querySelector('div.pop-up')
 //Table sizes
 const ROWS = 3
 const COLS = 3
@@ -67,13 +67,13 @@ const checkTheGame = (flattedTable) => {
         let B = flattedTable[b]
         let C = flattedTable[c]
         if(A == B && B == C && A && B && C) {
-            isFinish = true
-            if( counter % 2 == 0) winner = 'O'
-            else winner = 'X'
+            isFinish = true 
+            if( counter % 2 == 0) winner = 'O Won!!'
+            else winner = 'X Won!!'
         }
         else if(flattedTable.every(el => el != '')){
             isFinish = true
-            winner = 'deuce'
+            winner = 'Deuce'
         }
     }
 }
@@ -106,6 +106,9 @@ const cells = document.querySelectorAll('.board > span');
             //update the flat table and finish!!
             checkTheGame(table.flat(),counter)
             if(isFinish) {
+                // popup.textContent = `${winner} Kazandı Tebrikler!!`
+                // popup.style.opacity = '1'
+                // setTimeout(() => popup.style.zIndex = '1',1000)
                 winnerTitle.textContent = winner
             }
         }
@@ -113,6 +116,7 @@ const cells = document.querySelectorAll('.board > span');
     })
 })
 
+//reset the with reload the page
 resetBtn.addEventListener('click', e => {
     window.location.reload()
 })

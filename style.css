@@ -13,24 +13,29 @@ body{
     position:relative;
 }
 
-.pop-up{
-    position:absolute;
+.hide{
     display:none;
+}
+
+.pop-up{
+    display:none;
+    opacity:0;
+    position:relative;
+    transition:all 300ms ease;
     width:400px;
     height:400px;
-    inset:50% 50%;
-    transform:translate(-50%,-50%);
+    margin:50px auto;
     background-color:#ddd;
     border-radius:10px;
-    /* display:flex; */
     flex-direction: column;
     gap:10px;
     align-items:center;
     justify-content:space-evenly;
     text-align:center;
+    z-index:-99;
 }
 .pop-up > button{
-    margin:unset;
+    color:red;
 }
 .pop-up > h3{
     line-height:1.8;
